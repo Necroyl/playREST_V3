@@ -1,0 +1,17 @@
+<ul class="nav text-bg-primary p-3">
+    <li class="nav-item">
+        <a class="nav-link text-bg-primary" aria-current="page" href="/web/tareas">Lista de tareas</a>
+    </li>
+    {% if (session and session.usuario) %}
+    <li class="nav-item">
+        <a class="nav-link text-bg-primary" href="/web/tareas/nueva">Crear tarea</a>
+    </li>    
+    <li class="nav-item">
+        <a class="nav-link text-bg-primary" href="/web/logout">Cerrar sesión: {{ session.usuario }}</a>
+    </li>
+    {% else %}
+    <li class="nav-item">
+        <a class="nav-link text-bg-primary" href="/web/tareas/login">Iniciar sesión</a>
+    </li>
+    {% endif %}
+</ul>
