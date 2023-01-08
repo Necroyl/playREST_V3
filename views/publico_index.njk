@@ -1,0 +1,32 @@
+{% extends "publico_base.njk" %}
+{% block titulo %}Inicio{% endblock %}
+{% block contenido %}
+  <h1>Búsqueda de juegos</h1>
+  <form method="GET" action="/buscar">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" id="nombre">
+    <br>
+    <label for="edad">Edad recomendada:</label>
+    <input type="number" name="edad" id="edad">
+    <br>
+    <label for="tipo">Tipo de juego:</label>
+    <select name="tipo" id="tipo">
+      <option value="rol">Rol</option>
+      <option value="escape">Escape</option>
+      <option value="dados">Dados</option>
+      <option value="fichas">Fichas</option>
+      <option value="cartas">Cartas</option>
+      <option value="tablero">Tablero</option>
+    </select>
+    <br>
+    <input type="submit" value="Buscar">
+  </form>
+  {% if juegos %}
+    <h2>Resultados</h2>
+    <ul>
+      {% for juego in juegos %}
+        <li><a href="/juegos/{{ juego._id }}">{{ juego.nombre }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}
