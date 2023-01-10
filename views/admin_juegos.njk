@@ -1,0 +1,11 @@
+{% extends "admin_base.njk" %}
+{% block titulo %}Juegos{% endblock %}
+{% block contenido %}
+    <h1>Listado de juegos</h1>
+    <ul>
+      {% for juego in juegos %}
+        <li>{{ juego.nombre }} <a href="/juegos/editar/{{ juego._id }}">Editar</a> <a href="/juegos/eliminar/{{ juego._id }}">Eliminar</a></li>
+      {% endfor %}
+    </ul>
+    <a href="/juegos/nuevo">Añadir juego</a>
+{% endblock %}
