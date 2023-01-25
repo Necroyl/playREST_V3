@@ -9,6 +9,8 @@ const publico = require("./routes/publico");
 const juegos = require("./routes/juegos");
 const auth = require("./routes/auth");
 
+import './utils/generar_usuarios'; 
+
 // Conexión a la base de datos
 mongoose.connect("mongodb://mongodb:27017/playREST_v3", {
   useNewUrlParser: true,
@@ -18,8 +20,6 @@ mongoose.connect("mongodb://mongodb:27017/playREST_v3", {
 mongoose.set("strictQuery", true);
 
 const app = express();
-
-import './utils/generar_usuarios'; 
 
 // Asignación del motor de plantillas
 app.set('view engine', 'njk');
