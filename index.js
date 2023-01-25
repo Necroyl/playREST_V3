@@ -9,7 +9,7 @@ const publico = require("./routes/publico");
 const juegos = require("./routes/juegos");
 const auth = require("./routes/auth");
 
-import './utils/generar_usuarios'; 
+const { usu1, usu2 } = require('./utils/generar_usuarios');
 
 // Conexión a la base de datos
 mongoose.connect("mongodb://mongodb:27017/playREST_v3", {
