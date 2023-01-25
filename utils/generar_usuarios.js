@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 const Usuario = require(__dirname + "/../models/usuario");
 const bcrypt = require("bcrypt");
 
-mongoose.connect("mongodb://127.0.0.1:27017/playrest_v3");
-
 Usuario.collection.drop();
 
 let usu1 = new Usuario({
