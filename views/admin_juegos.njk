@@ -1,0 +1,34 @@
+{% extends "admin_base.njk" %}
+{% block titulo %}Juegos{% endblock %}
+{% block contenido %}
+    <h1>Listado de juegos</h1>
+
+      <table class="tabla">
+          {% for juego in juegos %}
+          <tr>
+              {% if loop.index % 2 == 0 %}
+                  <td class="par">
+              {% else %}
+                  <td class="impar">
+              {% endif %}
+              {{ juego.nombre }}
+              </td>
+              <td>
+                  <a class="btn btn-primary ms-3" href="/juegos/{{ juego._id }}">Ver ficha</a>
+              </td>
+              <td>
+                  <a class="btn btn-warning" href="/juegos/editar/{{ juego.id }}">Editar</a>
+              </td>
+              <td>
+                  <form action="/juegos/delete/{{ juego.id }}" method="post">
+                      <input type="hidden" name="_method" value="delete"/>
+                      <button type="submit" class="btn btn-danger">Borrar</button>
+                  </form>            
+              </td>
+          {% else %}
+              <h2>No hay juegos que mostrar</h2>
+              </td>
+          </tr>
+          {% endfor %}
+      </table>
+{% endblock %}
