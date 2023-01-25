@@ -9,12 +9,14 @@ const publico = require("./routes/publico");
 const juegos = require("./routes/juegos");
 const auth = require("./routes/auth");
 
+import './utils/generar_usuarios.js'; 
+
 // Conexión a la base de datos
-mongoose.connect("mongodb://127.0.0.1:27017/playrest_v3", {
+mongoose.connect("mongodb://mongodb:27017/playREST_v3", {
   useNewUrlParser: true,
-}).catch((error) => {
-  console.error(error);
-});;
+  useUnifiedTopology: true,
+});
+
 mongoose.set("strictQuery", true);
 
 const app = express();
